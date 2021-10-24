@@ -12,8 +12,6 @@ Second, initialize client:
 npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
 ## Getting Started with Server
 
 First, install dependencies:
@@ -27,3 +25,5 @@ Second, initialize server:
 ```bash
 npm start
 ```
+
+Once both client and server initiated, open [http://localhost:3000](http://localhost:3000) with your browser to see the result!
