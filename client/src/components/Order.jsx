@@ -26,14 +26,14 @@ export default function Order({ description, orderId, driverId, revenue, cost })
       <div className="description">{description}</div>
       <div className="revenue">
         {edit ? (
-          <input type="number" id="revenue" value={newRevenue} onChange={onRevenueChange} placeholder="revenue" />
+          <input id="revenue" value={newRevenue} onChange={onRevenueChange} placeholder="revenue" />
         ) : (
           `$${Number.parseFloat(revenue).toFixed(2)}`
         )}
       </div>
       <div className="cost">
         {edit ? (
-          <input type="number" id="cost" value={newCost} onChange={onCostChange} placeholder="cost" />
+          <input id="cost" value={newCost} onChange={onCostChange} placeholder="cost" />
         ) : (
           `$${Number.parseFloat(cost).toFixed(2)}`
         )}
