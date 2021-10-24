@@ -1,7 +1,6 @@
 .order-container {
- border: 1px solid black;
  width: 450px;
- height: 600px;
+ height: 500px;
  display: flex;
  flex-direction: column;
  align-items: center;
@@ -9,18 +8,25 @@
 }
 
 .title {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   padding: 10px;
-  border-bottom: 1px solid black;
+  border-bottom: 3px solid black;
+  width: 80%;
+  text-align: center;
 }
 
 .headers {
   display: flex;
-  margin-bottom: 5px;
+  margin-bottom: 14px;
+  border-bottom: 3px solid black;
+  width: 80%;
+  padding: 10px;
+  padding-bottom: 15px;
 }
 
 .headers > div:first-child {
-  margin-right: 80px;
+  margin-left: 40px;
+  margin-right: 60px;
 }
 
 .headers > div:nth-child(2) {
@@ -28,10 +34,12 @@
 }
 
 .headers > div:nth-child(3) {
-  margin-right: 18px;
+  margin-right: 10px;
 }
 
 .orderList {
+  width: 100%;
+  overflow: auto;
   display: flex;
   flex-direction: column;
   align-items: center;

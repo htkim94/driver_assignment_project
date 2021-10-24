@@ -22,20 +22,20 @@ export default function Order({ description, orderId, driverId, revenue, cost })
 
   return (
     <div className="order">
-      <MdDragHandle />
+      <MdDragHandle className={"handleIcon"} />
       <div className="description">{description}</div>
       <div className="revenue">
         {edit ? (
           <input type="number" id="revenue" value={newRevenue} onChange={onRevenueChange} placeholder="revenue" />
         ) : (
-          revenue
+          `$${Number.parseFloat(revenue).toFixed(2)}`
         )}
       </div>
       <div className="cost">
         {edit ? (
           <input type="number" id="cost" value={newCost} onChange={onCostChange} placeholder="cost" />
         ) : (
-          cost
+          `$${Number.parseFloat(cost).toFixed(2)}`
         )}
       </div>
       {edit ? (

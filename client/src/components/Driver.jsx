@@ -7,6 +7,11 @@ export default function Driver({ name, orders, droppableId }) {
   return (
     <div className="driver-container">
       <div className="title">Driver {name}</div>
+      <div className="headers">
+        <div>Description</div>
+        <div>Revenue</div>
+        <div>Cost</div>
+      </div>
       <Droppable droppableId={droppableId}>
         {(provided, snapshot) => (
           <div
@@ -24,13 +29,12 @@ export default function Driver({ name, orders, droppableId }) {
                       {...provided.dragHandleProps}
                     >
                       <Order
-                        driverId={order.driver}
                         key={order._id}
                         orderId={order._id}
+                        driverId={order.driver}
                         description={order.description}
                         revenue={order.revenue}
                         cost={order.cost}
-                        assigned={true}
                       />
                     </div>
                   )}

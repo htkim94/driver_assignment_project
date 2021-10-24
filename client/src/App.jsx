@@ -8,6 +8,7 @@ import { orderActions } from "./state/actions";
 import { DragDropContext } from "react-beautiful-dnd";
 import _ from "lodash";
 import "./App.css";
+import Driver from "./components/Driver";
 
 const App = () => {
   const orders = useSelector((state) => state.orders);
@@ -69,10 +70,11 @@ const App = () => {
             droppableId={unassignedBucket[0].id}
           />
         )}
-        <DriversContainer
-          drivers={Object.values(assignedOrders)}
-          orderData={assignedOrders}
-        />
+        { Object.values(assignedOrders).map((driver, i) => {
+          return (
+            <Driver key={i} name={driver.fullName} orders={assignedOrders[driver.id].orders} droppableId={driver.id}/>
+          )
+        })}
       </DragDropContext>
     </div>
   );

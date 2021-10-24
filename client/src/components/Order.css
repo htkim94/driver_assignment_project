@@ -2,13 +2,25 @@
   border: 1px solid black;
   border-radius: 5px;
   display: flex;
-  padding: 10px 10px 10px 10px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
   width: 350px;
-  margin-bottom: 10px;
+  height: 40px;
+  margin: 10px 0px;
 }
 
 .order > div {
   margin: 0px 15px;
+}
+
+.handleIcon {
+  text-align: center;
+}
+
+.description {
+  min-width: 100px;
+  max-width: 100px;
 }
 
 input {
