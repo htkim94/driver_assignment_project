@@ -22,6 +22,10 @@ export const fetchInitialDataAPI = (dispatch) => {
 };
 
 export const rearrangeOrderAPI = (dispatch, { orderId, newDriverId, copy }) => {
+  dispatch({
+    type: orderActions.UPDATE_LIST,
+    payload: copy,
+  });
   fetch("http://localhost:5050/orders", {
     method: "POST",
     mode: "cors",
@@ -35,10 +39,7 @@ export const rearrangeOrderAPI = (dispatch, { orderId, newDriverId, copy }) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      dispatch({
-        type: orderActions.UPDATE_LIST,
-        payload: copy,
-      });
+      
     });
 };
 
