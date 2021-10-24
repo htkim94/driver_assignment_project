@@ -1,0 +1,39 @@
+.order-container {
+ border: 1px solid black;
+ width: 450px;
+ height: 600px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ margin: 10px;
+}
+
+.title {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-bottom: 1px solid black;
+}
+
+.headers {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.headers > div:first-child {
+  margin-right: 80px;
+}
+
+.headers > div:nth-child(2) {
+  margin-right: 35px;
+}
+
+.headers > div:nth-child(3) {
+  margin-right: 18px;
+}
+
+.orderList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
