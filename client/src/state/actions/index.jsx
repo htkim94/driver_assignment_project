@@ -2,4 +2,9 @@ export const orderActions = {
   SET_INITIAL_LIST: "SET_INITIAL_ORDER_LIST",
   UPDATE_LIST: "UPDATE_ORDER_LIST",
   UPDATE_ORDER: "UPDATE_ONE_ORDER",
+  DELETE_ORDER: "DELETE_ONE_ORDER",
+}
+
+export const modalActions = {
+  SET_MODAL_INFO: "SET_MODAL_INFO",
 }

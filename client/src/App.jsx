@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import DriversContainer from "./components/DriversContainer";
+import React, { useEffect, useState } from "react";
+import ModalContainer from "./components/ModalContainer";
 import OrderContainer from "./components/OrderContainer";
 import { allDataButUnassigned } from "./helpers/helpers";
 import { fetchInitialDataAPI, rearrangeOrderAPI } from "./helpers/request";
@@ -12,6 +12,10 @@ import Driver from "./components/Driver";
 
 const App = () => {
   const orders = useSelector((state) => state.orders);
+  const modalInfo = useSelector((state) => state.modalInfo);
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalStatus, setModalStatus] = useState("");
 
   const dispatch = useDispatch();
 
@@ -61,6 +65,9 @@ const App = () => {
     (order) => order.fullName === "unassigned"
   );
 
+  console.log(orders);
+  console.log(unassignedBucket);
+
   return (
     <div className="App">
       <DragDropContext onDragEnd={onDragEnd}>
@@ -68,14 +75,33 @@ const App = () => {
           <OrderContainer
             orders={unassignedBucket[0].orders}
             droppableId={unassignedBucket[0].id}
+            setModalOpen={setModalOpen}
+            setModalStatus={setModalStatus}
           />
         )}
-        { Object.values(assignedOrders).map((driver, i) => {
+        {Object.values(assignedOrders).map((driver, i) => {
           return (
-            <Driver key={i} name={driver.fullName} orders={assignedOrders[driver.id].orders} droppableId={driver.id}/>
-          )
+            <Driver
+              key={i}
+              name={driver.fullName}
+              orders={assignedOrders[driver.id].orders}
+              droppableId={driver.id}
+              setModalOpen={setModalOpen}
+              setModalStatus={setModalStatus}
+            />
+          );
         })}
       </DragDropContext>
+      {modalOpen && (
+        <>
+          <div className="modal-overlay" /> 
+          <ModalContainer
+            mode={modalStatus}
+            setModalOpen={setModalOpen}
+            order={modalInfo}
+          />
+        </>
+      )}
     </div>
   );
 };

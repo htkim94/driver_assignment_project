@@ -3,7 +3,7 @@ import Order from "./Order";
 import "./Driver.css";
 import { Draggable, Droppable } from "react-beautiful-dnd";
 
-export default function Driver({ name, orders, droppableId }) {
+export default function Driver({ name, orders, droppableId, setModalStatus, setModalOpen }) {
   return (
     <div className="driver-container">
       <div className="title">Driver {name}</div>
@@ -30,11 +30,9 @@ export default function Driver({ name, orders, droppableId }) {
                     >
                       <Order
                         key={order._id}
-                        orderId={order._id}
-                        driverId={order.driver}
-                        description={order.description}
-                        revenue={order.revenue}
-                        cost={order.cost}
+                        order={order}
+                        setModalOpen={setModalOpen}
+                        setModalStatus={setModalStatus}
                       />
                     </div>
                   )}

@@ -43,3 +43,15 @@ export const updateOrder = async (req, res) => {
     res.status(404).json({message: error.message});
   }
 }
+
+export const deleteOrder = async (req, res) => {
+  try {
+    const { orderId } = req.body;
+    const order = await Order.findOneAndDelete(
+      { _id: orderId },
+    );
+    res.status(200).json(order);
+  } catch {
+    res.status(404).json({message: error.message});
+  }
+}

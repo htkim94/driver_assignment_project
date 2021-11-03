@@ -3,7 +3,7 @@ import { Droppable, Draggable } from "react-beautiful-dnd";
 import Order from "./Order";
 import "./OrderContainer.css";
 
-export default function OrderContainer({ name, orders, droppableId }) {
+export default function OrderContainer({ setModalOpen, setModalStatus, orders, droppableId }) {
   return (
     <div className="order-container">
       <div className="title">Unassigned Orders</div>
@@ -29,12 +29,10 @@ export default function OrderContainer({ name, orders, droppableId }) {
                       {...provided.dragHandleProps}
                     >
                       <Order
-                        key={order.id}
-                        orderId={order._id}
-                        driverId={order.driver}
-                        description={order.description}
-                        revenue={order.revenue}
-                        cost={order.cost}
+                        key={order._id}
+                        order={order}
+                        setModalOpen={setModalOpen}
+                        setModalStatus={setModalStatus}
                       />
                     </div>
                   )}

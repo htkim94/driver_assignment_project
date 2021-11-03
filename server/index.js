@@ -28,10 +28,10 @@ const PORT = process.env.PORT || 5050;
 connectDb()
   .then(async () => {
 
-    // //delete and recreate seeds when server restarts (only for development stage)
-    // await models.Order.deleteMany({});
-    // await models.Driver.deleteMany({});
-    // createSeeds();
+    //delete and recreate seeds when server restarts (only for development stage)
+    await models.Order.deleteMany({});
+    await models.Driver.deleteMany({});
+    createSeeds();
 
     app.listen(PORT, () => {
       console.log(`Example app listening on port ${PORT}!`);

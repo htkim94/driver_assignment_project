@@ -69,3 +69,23 @@ export const updateOrderAPI = (
       });
     });
 };
+
+export const deleteOrderAPI = (dispatch, orderId) => {
+  fetch("http://localhost:5050/orders/deleteOrder", {
+    method: "DELETE",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      orderId: orderId,
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      dispatch({
+        type: orderActions.DELETE_ORDER,
+        payload: data,
+      })
+    });
+}
